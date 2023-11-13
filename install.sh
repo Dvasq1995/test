@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Update and install packages
-pacman -Syu --noconfirm --needed firefox mpv qbittorrent noto-fonts noto-fonts-cjk nodejs npm eslint prettier fcitx5-mozc fcitx5-qt fcitx5-gtk fcitx5-configtool steam lutris discord libreoffice-fresh drawing neofetch otf-font-awesome waybar breeze audacity obs-studio kdegraphics-thumbnailers kimageformats5 libheif qt5-imageformats resvg kdesdk-thumbnailers ffmpegthumbs taglib kde-thumbnailer-apk vulkan-tools nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses ocl-icd lib32-ocl-icd libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader linux-headers
+pacman -Syu --needed firefox mpv qbittorrent noto-fonts noto-fonts-cjk nodejs npm eslint prettier fcitx5-mozc fcitx5-qt fcitx5-gtk fcitx5-configtool steam lutris discord libreoffice-fresh drawing neofetch otf-font-awesome waybar breeze audacity obs-studio kdegraphics-thumbnailers kimageformats5 libheif qt5-imageformats kdesdk-thumbnailers ffmpegthumbs taglib vulkan-tools nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses ocl-icd lib32-ocl-icd libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader linux-headers
 
 # Set environment variables
 echo "GTK_IM_MODULE=fcitx" >> /etc/environment
@@ -24,18 +24,5 @@ echo "__GLX_VENDOR_LIBRARY_NAME=nvidia" >> /etc/environment
 echo "LIBVA_DRIVER_NAME=nvidia" >> /etc/environment
 echo "__GL_GSYNC_ALLOWED=0" >> /etc/environment
 echo "__GL_VRR_ALLOWED=0" >> /etc/environment
-
-# Modify GRUB configuration
-sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"/GRUB_CMDLINE_LINUX_DEFAULT="\1 nvidia_drm.modeset=1"/' /etc/default/grub
-
-# Modify mkinitcpio.conf
-sed -i 's/^MODULES=(\(.*\))/MODULES=(\1 nvidia nvidia_modeset nvidia_uvm nvidia_drm)/' /etc/mkinitcpio.conf
-
-# Modify or create /etc/modprobe.d/nvidia.conf
-echo "options nvidia-drm modeset=1" >> /etc/modprobe.d/nvidia.conf
-
-# Update GRUB configuration and regenerate initramfs
-grub-mkconfig -o /boot/grub/grub.cfg
-mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img
 
 echo "Script execution completed."
