@@ -24,5 +24,6 @@ echo "QT_AUTO_SCREEN_SCALE_FACTOR=1" >> /etc/environment
 echo "QT_QPA_PLATFORM=wayland;xcb" >> /etc/environment
 echo "QT_WAYLAND_DISABLE_WINDOWDECORATION=1" >> /etc/environment
 echo "QT_QPA_PLATFORMTHEME=qt5ct" >> /etc/environment
+echo "WLR_DRM_NO_ATOMIC=1" >> /etc/environment
 
 echo "Script execution completed."
