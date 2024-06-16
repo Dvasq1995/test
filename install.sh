@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Update and install packages
-pacman --sync --refresh --sysupgrade --needed chromium discord noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra fcitx5-im fcitx5-mozc mpv bleachbit linux-headers
+pacman --sync --refresh --sysupgrade --needed chromium discord noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra fcitx5-im fcitx5-mozc mpv bleachbit linux-headers cliphist polkit-kde-agent
 
 # Set environment variables
 echo "GTK_IM_MODULE=fcitx" >> /etc/environment
