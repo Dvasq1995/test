@@ -8,5 +8,4 @@ echo "GTK_IM_MODULE=fcitx" >> /etc/environment
 echo "QT_IM_MODULE=fcitx" >> /etc/environment
 echo "XMODIFIERS=@im=fcitx" >> /etc/environment
 
-gpasswd -a $USER plugdev
 echo "Script execution completed."
