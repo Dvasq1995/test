@@ -1,6 +1,11 @@
 #!/bin/bash
 
 # Update and install packages
-pacman --sync --refresh --sysupgrade --needed firefox noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra gnome-shell-extension-appindicator qbittorrent
+pacman --sync --refresh --sysupgrade --needed firefox noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra gnome-shell-extension-appindicator qbittorrent timeshift bleachbit mpv linux-headers fcitx5-im fcitx5-mozc
+
+# Set environment variables
+echo "GTK_IM_MODULE=fcitx" >> /etc/environment
+echo "QT_IM_MODULE=fcitx" >> /etc/environment
+echo "XMODIFIERS=@im=fcitx" >> /etc/environment
 
 echo "Script execution completed."
