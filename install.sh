@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Update and install packages
-pacman --sync --refresh --sysupgrade --needed firefox noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra gnome-shell-extension-appindicator gnome-browser-connector qbittorrent timeshift bleachbit mpv linux-headers fcitx5-im fcitx5-mozc discord
+pacman --sync --refresh --sysupgrade --needed firefox noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra gnome-shell-extension-appindicator gnome-browser-connector qbittorrent timeshift bleachbit mpv linux-headers openrazer-daemon fcitx5-im fcitx5-mozc discord fcitx5-im fcitx-mozc libreoffice-fresh
 
 # Set environment variables
 echo "GTK_IM_MODULE=fcitx" >> /etc/environment
