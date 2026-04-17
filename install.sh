@@ -13,4 +13,7 @@ echo "GTK_IM_MODULE=fcitx" >> /etc/environment
 echo "QT_IM_MODULE=fcitx" >> /etc/environment
 echo "XMODIFIERS=@im=fcitx" >> /etc/environment
 
+pacman -Rcs $(pacman -Qdtq)
+pacman -Scc
+
 echo "Script execution completed."
